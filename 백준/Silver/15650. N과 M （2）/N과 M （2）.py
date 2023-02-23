@@ -1,22 +1,22 @@
-# 1부터 n까지 자연수 중에서 중복 없이 M개를 고른 수열
-# 오름차순 -> start 넣어서 그것보다 큰 수로
-n, m = map(int, input().split())
-c = [False]*(n+1)
-a = [0]*m
+# select 방법
+# index : 수 index
+# selected : 선택한 수의 개수
+N, M = map(int, input().split())
+a = [0]*M
 
-def go(index, start, n, m):
-    if index == m :
+def go(index, selected, N, M):
+    if selected == M :
         print(' '.join(map(str,a)))
         return
-
-    for i in range(start, n+1):
-        if c[i]:
-            continue
-        c[i] = True
-        a[index] = i
-        go(index+1,i+1, n, m) #다음 수는 a[index]인 i보다 더 큰수에서 시작
-        c[i] = False
     
+    if index > N : # 더이상 선택할 수 없음. -> 종료
+        return
 
-go(0, 1, n, m)
+    # 선택
+    a[selected] = index
+    go(index+1, selected+1, N,M)
+    # 선택x
+    a[selected] = 0
+    go(index+1, selected,N,M) # 선택하지않았으니 selected는 변하지 않음
 
+go(1,0,N,M)
