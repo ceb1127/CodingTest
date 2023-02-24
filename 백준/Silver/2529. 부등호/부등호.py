@@ -1,35 +1,32 @@
-# 만족하는 최댓값 최솟값 찾기
-def ok(num):
-    for i in range(n) :
-        if a[i] == '<' :
-            if num[i] > num[i+1]:
-                return False
-        elif a[i] == '>' :
-            if num[i] < num[i+1] :
-                return False
+# 체크 함수
+def good(x,y,op):
+    if op == '>':
+        if x < y : 
+            return False
+    if op == '<':
+        if x > y :
+            return False
     return True
 
-
-def go(index, num):
-    if index == n+1:
-        if ok(num) :
-            ans.append(num)
+# 실행 함수
+def go(index,num) :
+    if index == n+1 :
+        ans.append(num)
         return
     for i in range(10):
         if check[i] :
             continue
-        check[i] = True
-        go(index+1, num+str(i))
-        check[i] = False
-
+        if index == 0 or good(num[index-1], str(i), a[index-1]):
+            check[i] = True
+            go(index+1, num+str(i))
+            check[i] = False
 
 n = int(input())
 a = input().split()
 ans = []
 check = [False]*10
+
 go(0,'')
 ans.sort()
-print(ans[-1]) #최대
-print(ans[0])  #최소
-
-
+print(ans[-1])
+print(ans[0])
