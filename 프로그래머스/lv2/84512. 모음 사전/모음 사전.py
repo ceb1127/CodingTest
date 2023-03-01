@@ -1,16 +1,11 @@
-# 재귀
+# 중복 순열
+from itertools import product
+
 def solution(word):
-    answer = 0
-    words = "AEIOU"
-    word_list = []
-    
-    def all_word(cnt, w):
-        if cnt == 5 :
-            return
-        for i in range(len(words)):
-            word_list.append(w+words[i])
-            all_word(cnt+1, w+words[i])
-    
-    all_word(0,"")
-    
-    return word_list.index(word)+1
+    words = []
+    for i in range(1,6) :
+        for c in product(['A','E','I','O','U'], repeat=i) :
+            words.append(''.join(list(c)))
+            
+    words.sort()
+    return words.index(word) + 1
