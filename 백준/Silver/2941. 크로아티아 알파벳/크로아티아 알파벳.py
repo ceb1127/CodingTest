@@ -1,6 +1,7 @@
-a = ['c=','c-','dz=','d-','lj','nj','s=','z=']
-b = input()
+croatia = ['c=','c-','dz=','d-','lj','nj','s=','z=']
+S = input()
 
-for i in a :
-    b = b.replace(i,'a')
-print(len(b))
+for i in croatia :
+    S = S.replace(i,"a")
+
+print(len(S))
