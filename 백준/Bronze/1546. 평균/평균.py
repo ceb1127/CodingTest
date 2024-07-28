@@ -1,9 +1,9 @@
-num = int(input())
+N = int(input())
 score = list(map(int,input().split()))
-M = max(score)
+result = []
 
-for i in range(num) :
-    score[i] = score[i]/M*100
-    avg = sum(score)/num
-
-print(avg)
+for i in range(N):
+    max_score = max(score)
+    result.append(score[i]/max_score*100)
+    
+print(sum(result)/len(result))
