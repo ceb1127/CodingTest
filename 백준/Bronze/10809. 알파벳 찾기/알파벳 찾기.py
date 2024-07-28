@@ -1,5 +1,15 @@
-word = input()
-alphabet = list(range(97,123))  # 아스키코드 숫자 범위
+S = input()
+alpha = 'abcdefghijklmnopqrstuvwxyz'
+result = []
 
-for x in alphabet :
-    print(word.find(chr(x))) 
+for i in range(len(alpha)):
+    if alpha[i] in S :
+        result.append(S.index(alpha[i]))
+    else :
+        result.append(-1)
+        
+for i in range(len(result)):
+    print(result[i], end=" ")
+
+
+    
