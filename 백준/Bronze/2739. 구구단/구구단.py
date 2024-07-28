@@ -1,4 +1,5 @@
-N = int(input())
+n = int(input())
 
-for i in range(1, 9+1) :
-    print("{} * {} = {}".format(N,i,N*i))
+for i in range(1,9+1):
+    result = n * i
+    print(n,"*",i,"=",result)
