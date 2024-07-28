@@ -1,7 +1,8 @@
-list_a = []
+a_list = []
 
-for i in range(9) :
-    list_a.append(int(input()))
+for i in range(9):
+    a_list.append(int(input()))
+    
 
-print(max(list_a))
-print(list_a.index(max(list_a))+1)
+print(max(a_list))
+print(a_list.index(max(a_list))+1)
