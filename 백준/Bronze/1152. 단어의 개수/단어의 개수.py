@@ -1,3 +1,3 @@
-sen = input().split() # home sweet home
+S = list(input().split())
 
-print(len(sen))
+print(len(S))
