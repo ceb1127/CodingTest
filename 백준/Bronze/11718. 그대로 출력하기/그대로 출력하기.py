@@ -1,6 +1,6 @@
+import sys
 
-while True :
-    try : 
-        print(input())
-    except EOFError :
-        break
+S = sys.stdin.readlines()
+
+for i in S :
+    print(i.rstrip())
