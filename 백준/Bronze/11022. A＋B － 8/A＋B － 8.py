@@ -1,8 +1,5 @@
-import sys
-
 T = int(input())
 
-for i in range(1,T+1) :
-    A, B = map(int, sys.stdin.readline().split())
-    C = A + B
-    print("Case #{}: {} + {} = {}".format(i,A, B, C))
+for i in range(T):
+    a, b= map(int,input().split())
+    print(f'Case #{i+1}: {a} + {b} = {a+b}')
