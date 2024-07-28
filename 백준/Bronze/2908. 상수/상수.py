@@ -1,8 +1,9 @@
 a, b = input().split()
+
 a_reverse = a[::-1]
 b_reverse = b[::-1]
 
-if a_reverse > b_reverse :
+if (a_reverse > b_reverse) :
     print(a_reverse)
-else : 
+else: 
     print(b_reverse)
