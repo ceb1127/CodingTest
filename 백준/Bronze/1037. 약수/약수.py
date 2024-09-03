@@ -1,6 +1,7 @@
-n = int(input())
-num = list(map(int,input().split())) 
-num1 = min(num)
-num2 = max(num)
-answer = num1 * num2  
-print(answer)
+N = int(input())
+
+n_list = list(map(int, input().split()))
+
+n_list.sort()
+print(n_list[0]*n_list[-1])
+
