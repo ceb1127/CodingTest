@@ -1,11 +1,5 @@
-def gcd(x,y):
-    if y == 0:
-        return x
-    else :
-        return gcd(y,x%y)
+import math
+a, b = map(int, input().split())
 
-        
-a, b = map(int,input().split())
-g = gcd(a,b)
-print(g)
-print(a*b//g)
+print(math.gcd(a,b))
+print(math.lcm(a,b))
