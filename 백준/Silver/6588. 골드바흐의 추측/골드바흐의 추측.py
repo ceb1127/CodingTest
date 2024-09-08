@@ -1,27 +1,46 @@
+
 import sys
 
-#에라토스테네스 체 이용해서 소수 미리 계산 : 에라토스테네스의 체 처럼 연산이 많은 경우 pypy3
-MAX = 1000000
-check = [0]*(MAX+1)
-check[0] = check[1] = True
+input = sys.stdin.readline
+max_su = 1000000
 
-# prime에 소수를 추가, 배수를 모두 제거
-prime = []
-for i in range(2, MAX+1) :
-    if not check[i] :
-        prime.append(i)
-        j = i + i 
-        while j <= MAX :
-            check[j] = True
-            j += i
-prime = prime[1:]
+def eratosthenes():
+    sosu = [True]*(max_su+1)
+    sosu[0] = sosu[1] = False
 
-# 골드바흐의 추측, p가 작은 수부터 큰 수로 돌기때문에 n-p를 구함 : A+B = N
-while True:
-    n = int(sys.stdin.readline())
-    if n == 0 :
-        break
-    for p in prime:
-        if check[n-p] == False:
-            print("{0} = {1} + {2}".format(n,p,n-p))
-            break
+    for i in range(2, int(max_su**0.5)+1 ):
+        if sosu[i]: # 소수인지 확인
+            for j in range(i*i,max_su+1,i): #배수를 지움
+                sosu[j] = False
+
+    while True:
+        n = int(input())
+        if n == 0 :
+           break
+        
+        for i in range(3,n):
+            if sosu[i] and sosu[n-i] : 
+                print(f"{n} = {i} + {n-i}")
+                break
+        else: 
+            print("Goldbach's conjecture is wrong.")
+
+
+
+
+eratosthenes()
+
+
+
+            
+
+
+
+
+
+
+
+    
+
+
+
