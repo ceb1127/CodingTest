@@ -1,11 +1,15 @@
-# combination 라이브러리 활용 9C2
-from itertools import combinations
+import sys
+input = sys.stdin.readline
+nan = []
 
-nanjaeng = [int(input()) for i in range(9)]
-occation = list(combinations(nanjaeng,7))
-for i in occation:
-    if sum(i) == 100 :
-        answer = list(i)
+for _ in range(9):
+    nan.append(int(input().strip()))
+
+from itertools import combinations
+nan_final = list(combinations(nan,7))
+
+for i in nan_final:
+    if sum(i) == 100:
+        for j in sorted(i):
+            print(j)
         break
-answer.sort()
-print(*answer,sep='\n')
