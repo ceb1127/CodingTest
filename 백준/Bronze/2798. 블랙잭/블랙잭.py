@@ -1,23 +1,16 @@
-N, M = map(int,input().split())
-card = sorted(list(map(int,input().split())))
-sum_card = []
+import sys
+input = sys.stdin.readline
 
-for i in range(len(card)):
-    for j in range(i+1,len(card)):
-        for k in range(j+1,len(card)):
-            sum_card.append(card[i]+card[j]+card[k])
+N,M = map(int,input().split()) 
+lst = list(map(int,input().split()))
 
-if M in sum_card :
-    print(M)
-else:
-    sum_card.append(M)
-    sum_card.sort()
-    x_inx = sum_card.index(M)
-    print(sum_card[x_inx-1])
+ans = 0
 
+for i in range(0,N-2):
+    for j in range(i+1, N-1):
+        for k in range(j+1, N):
+            if ans < lst[i] + lst[j] + lst[k] <= M :
+                    ans = lst[i] + lst[j] + lst[k]
 
-
-
-
-
+print(ans)
 
